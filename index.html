@@ -16,11 +16,27 @@
 
   <link rel="preload" as="image" href="assets/images/hero.webp">
   <link rel="canonical" href="https://www.forzajuniors.cz/">
+  <script async src="script.js"></script>
 </head>
 <body>
   <header>
     <nav>
       <a href="/" class="logo"><img src="assets/images/forza-logo-transparent.png" alt="Forza Juniors logo" class="logo"></a>
+      <ul class="nav-desktop">
+        <li><a href=""><h3>Domů</h3></a></li>
+        <li><a href=""><h3>O nás</h3></a></li>
+        <li><a href=""><h3>Trenéři</h3></a></li>
+        <li><a href=""><h3>Aktuální kemp</h3></a></li>
+        <li><a href=""><h3>Dokumenty</h3></a></li>
+      </ul>
+      <div class="right-nav">
+        <a href="" ><h4 class="button bg-clr-yellow-btn">Přihláška</h4></a>
+        <button onclick="nav()">
+          <img src="assets/icons/ico-open-btn.svg" class="nav-menu" alt="Open Button">
+        </button>
+      </div>
+    </nav>
+    <nav class="mobile-nav">
       <ul>
         <li><a href=""><h3>Domů</h3></a></li>
         <li><a href=""><h3>O nás</h3></a></li>
@@ -28,7 +44,9 @@
         <li><a href=""><h3>Aktuální kemp</h3></a></li>
         <li><a href=""><h3>Dokumenty</h3></a></li>
       </ul>
-      <a href="" ><h4 class="button bg-clr-yellow-btn">Přihláška</h4></a>
+      <button onclick="nav()" class="nav-menu">
+        <img src="assets/icons/ico-close-btn.svg" class="nav-menu" alt="Close Button">
+      </button>
     </nav>
   </header>
   <main>
@@ -42,24 +60,22 @@
       <a href=""><h3 class="button bg-clr-yellow-btn">Zjistěte více</h3></a>
     </section>
     <div class="container bg-clr-black">
-      <section class="about ">
+      <section class="about">
         <img src="assets/images/forza-logo-transparent.png" alt="Forza Juniors Logo">
         <h2>O nás</h2>
         <p>Ahoj! Jsme Pavel s Martinem, zápasník a hokejista, studenti, učitelé a kamarádi co společně založili Forza Juniors. Známe se od střední školy a naším společným zájmem byl vždy hlavně sport. Od malička se všechno kolem nás točí právě kolem sportu a rádi naše zkušenosti předáváme dál, ať už jako učitelé tělocviku, nebo formou tréninků a sportovních kempů. V dnešní uspěchané době se občas i na sportovní specializaci dětí příliš tlačí, což často vede k tomu, že děti ztrácí lásku ke sportu i pohybu obecně. Proto vznikl spolek Forza Juniors, kde chceme děti vést ke zdravým pohybovým návykům, rozvíjet jejich schopnosti všestranně a netlačit jen na výkon. Pojďme společně dětem umožnit žít zdravější a kvalitnější život!</p>
       </section>
     </div>
     <div class="container bg-clr-purple">
-      <section class="trainers">
+      <section class="trainers max-width">
         <h2>Vaši trenéři</h2>
         <div class="gallery">
           <article>
-            <img src="assets/images/Martin.webp" alt="Trenér Martin">
             <h3>Martin</h3>
             <p>Ahoj, jsem Martin a aktuálně studuji na Západočeské univerzitě, kterou zároveň i reprezentuji v ledním hokeji za tým Akademici Plzeň. Sportu se věnuji od raného dětství a jako sport číslo jedna je pro mě stále lední hokej. Ovšem vždy jsem byl veden ke kombinaci různých sportů...</p>
             <a href=""><h4 class="button bg-clr-yellow-btn">Dozvědět se více</h4></a>
           </article>
           <article>
-            <img src="assets/images/Pavel.webp" alt="Trenér Pavel">
             <h3>Pavel</h3>
             <p>Ahoj, jsem Pavel a moje sportovní cesta začala v šesti letech, kdy mě rodiče poprvé dali na trénink k zápasníkům. Od té doby pro mě byl zápas číslo jedna a o ničem jiném jsem nechtěl slyšet. Povedlo se mi vyhrát titul mistra republiky a také jsem byl součástí národního týmu...</p>
             <a href=""><h4 class="button bg-clr-yellow-btn">Dozvědět se více</h4></a>
@@ -69,7 +85,7 @@
     </div>
     <div class="container bg-clr-black">
       <h2 class="pillars-heading">Cíle našich kempů</h2>
-      <section class="pillars">
+      <section class="pillars max-width">
         <div class="card">
           <img src="assets/icons/ico-heart.svg" alt="Srdíčko">
           <h3>Láska ke sportu</h3>
@@ -83,7 +99,7 @@
         <div class="card">
           <img src="assets/icons/ico-speech-bubble.svg" alt="Mluvící bubliny">
           <h3>Přátelství a komunikace</h3>
-          <p>Základní pilíře, na kterých je celé naše fungování založeno. Komunikace a dobré vztahy mezi trenéry, rodiči a dětmi jsou klíčové.</p>
+          <p>Základní pilíře, na kterých je celé naše fungování založeno. Komunikace a dobré vztahy mezi , rodiči a dětmi jsou klíčové.</p>
         </div>
         <div class="card">
           <img src="assets/icons/ico-running.svg" alt="Běžící panáček">
@@ -94,7 +110,7 @@
     </div>
     <div class="container bg-clr-purple current-camp-img">
       <section class="current-camp">
-        <!-- <div class="text"> -->
+        <div class="text max-width">
           <h4 class="clr-yellow">Aktuální kemp</h4>
           <h2>Forza Juniors SummerCamp 15. - 19.7.</h2>
           <p>Pojďte zažít úžásný sportovní příměstský tábor! Na táboře mimo jiné zažijete:</p>
@@ -106,8 +122,113 @@
           </ul>
           <p>V ceně je strava, pronajmutá sportoviště, vybavení, trenéři a kempové tričko.</p>
           <p class="clr-yellow">Cena: 3990Kč</p>
-        <!-- </div> -->
+          <a href="/"><h4 class="button bg-clr-yellow-btn">Přihláška</h4></a>
+        </div>
       </section>
+    </div>
+    <div class="container bg-clr-purple">
+      <h2 class="testimonials-heading">Recenze</h2>
+      <section class="testimonials max-width">
+        <div class="testimonial">
+          <div class="review">
+            <div><img src="assets/icons/ico-quotes.svg" alt="Ikonka uvozovek" class="quotes"></div>
+            <div><p>Dcera  byla s kempem moc spokojená. Vyzkoušela si mnoho nových sportů a moc jí bavil. Děkujeme!</p></div>
+          </div>
+          <div class="author">
+            <h4>Eva N.</h4>
+          </div>
+        </div> 
+        <div class="testimonial">
+          <div class="review">
+            <div><img src="assets/icons/ico-quotes.svg" alt="Ikonka uvozovek" class="quotes"></div>
+            <div><p>Dcera  byla s kempem moc spokojená. Vyzkoušela si mnoho nových sportů a moc jí bavil. Děkujeme!</p></div>
+          </div>
+          <div class="author">
+            <h4>Eva N.</h4>
+          </div>
+        </div> 
+        <div class="testimonial">
+          <div class="review">
+            <div><img src="assets/icons/ico-quotes.svg" alt="Ikonka uvozovek" class="quotes"></div>
+            <div><p>Dcera  byla s kempem moc spokojená. Vyzkoušela si mnoho nových sportů a moc jí bavil. Děkujeme!</p></div>
+          </div>
+          <div class="author">
+            <h4>Eva N.</h4>
+          </div>
+        </div> 
+        <div class="testimonial">
+          <div class="review">
+            <div><img src="assets/icons/ico-quotes.svg" alt="Ikonka uvozovek" class="quotes"></div>
+            <div><p>Dcera  byla s kempem moc spokojená. Vyzkoušela si mnoho nových sportů a moc jí bavil. Děkujeme!</p></div>
+          </div>
+          <div class="author">
+            <h4>Eva N.</h4>
+          </div>
+        </div> 
+        <div class="testimonial">
+          <div class="review">
+            <div><img src="assets/icons/ico-quotes.svg" alt="Ikonka uvozovek" class="quotes"></div>
+            <div><p>Dcera  byla s kempem moc spokojená. Vyzkoušela si mnoho nových sportů a moc jí bavil. Děkujeme!</p></div>
+          </div>
+          <div class="author">
+            <h4>Eva N.</h4>
+          </div>
+        </div> 
+      </section>
+    </div>
+    <div class="container bg-clr-black">
+      <section class="contact max-width">
+        <h2 class="clr-yellow">Přihláška na kemp</h2>
+        <form action="" method="post">
+          <label for="name"><h4>Jméno a příjmení rodiče</h4></label>
+          <input type="text" id="name" placeholder="Karel Novák">
+          <label for="age"><h4>Věk dítěte</h4></label>
+          <input type="number" id="age" placeholder="9">
+          <label for="email"><h4>Email</h4></label>
+          <input type="email" id="email" placeholder="karel.novak@email.cz">
+          <label for="tel"><h4>Telefon</h4></label>
+          <input type="tel" id="tel" placeholder="123456789">
+          <button type="submit" class="button bg-clr-yellow-btn"><h4>Odeslat</h4></button>
+          <p class="disclaimer">Odesláním této přihlášky souhlasíte s <a class="underline" href="https://www.youtube.com">pravidly zpracování osobních údajů.</a></p>
+        </form>
+      </section>
+    </div>
+    <div class="container" style="background-color: var(--clr-footer);">
+      <footer class="footer">
+        <img src="assets/images/forza-logo-transparent.png" alt="Forza Juniors Logo">
+        <div class="links">
+          <div>
+            <h4>Kontakt</h4>
+            <a href="mailto:info@forzajuniors.cz">info@forzajuniors.cz</a>
+            <p>Pavel: +420 775 054 273</p>
+            <p>Martin: +420 736 144 594</p>
+          </div>
+          <div>
+            <h4>Dokumenty</h4>
+            <a href="">Zpracování osobních údajů</a>
+            <a href="">Potvrzení o bezinfekčnosti</a>
+          </div>
+          <div>
+            <h4>Sociální sítě</h4>
+            <a class="social" href="">
+              <img src="assets/icons/ico-instagram.svg" alt="Instagram">
+              <p>Instagram</p>
+            </a>
+            <a class="social" href="">
+              <img src="assets/icons/ico-facebook.svg" alt="Facebook">
+              <p>Facebook</p>
+            </a>
+          </div>
+          <div>
+            <p>IČ: 898987</p>
+            <p>DIČ: 8778788778</p>
+          </div>
+        </div>
+        <div>
+          <p>© Forza Juniors 2023 - 2024, všechna práva vyhrazena.</p>
+          <p>Developed by <a href="https://skoula.com" target="_blank" class="underline" id="attribution">Michal Škoula Solutions</a>.</p>
+        </div>
+      </footer>
     </div>
   </main>
 </body>
