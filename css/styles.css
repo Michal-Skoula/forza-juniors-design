@@ -10,7 +10,7 @@
   --clr-textbox: #2A2A2A;
   --clr-black: #171717;
   --clr-white: #FFFFFF;
-  --clr-grey:#E9E9E9;
+  --clr-grey:#d5d5d5;
   --clr-footer: #1B0825;
   --clr-footer-text: #c7c7c7;
 
@@ -24,7 +24,7 @@
   --font: "Karla", sans-serif;
   --max-width:900px;
 
-  --mobile-breakpoint: 450px;
+  --mobile-breakpoint: 550px;
   --tablet-breakpoint: 900px;
 
   --padding-side-default: 64px;
@@ -32,12 +32,12 @@
   --line-height: 30px;
 
 }
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 550px) {
   :root {
     --h1: 40px; 
     --h2: 30px;
-    --h3: 24px;
-    --h4: 24px;
+    --h3: 26px;
+    --h4: 22px;
     --p: 16px;
 
     --padding-side-default:16px;
@@ -116,7 +116,6 @@ li {
   text-align: center;
   border:none;
   cursor: pointer;
-
 }
 .container {
   width:100vw;
@@ -129,13 +128,16 @@ li {
   max-width: var(--max-width);
   margin:0 auto;
 }
+
 /* Nav */
 
 header {
   width: 100vw;
   max-width: 100%;
   padding:16px;
-  background-color: var(--clr-purple-buttons);
+  background-color: #40105Bc4;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   position: fixed;
   top:0;
   left:0;
@@ -169,7 +171,8 @@ nav button {
 }
 .nav-menu {
   display: none;
-  height:44.8px;
+  height:41.6px;
+  /* margin-bottom:1px; */
 }
 body:has(.mobile-nav:has(.open)) { 
   overflow: hidden; /* Disables scroll when mobile nav is open and enables it when closed */
@@ -195,6 +198,7 @@ body:has(.mobile-nav:has(.open)) {
     height: 100%;
     background-color: var(--clr-purple-buttons);
     backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     place-content: center; 
     /* transition: all ease-in-out 300ms; */
     animation: nav ease-in 300ms;
@@ -214,8 +218,8 @@ body:has(.mobile-nav:has(.open)) {
   }
   .mobile-nav .nav-menu {
     position: fixed;
-    right:16px;
-    top:16px;
+    right:18px;
+    top:18px;
   }
 }
 @keyframes nav {
@@ -231,30 +235,44 @@ body:has(.mobile-nav:has(.open)) {
 
 .hero {
   width:100vw;
+  height:100vh;
+  height: 100svh;
   max-width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   text-align: center;
-  gap:12px;
   background-image: url(/assets/images/hero.png);
-  background-position: 0% 35%;
+  background-position: 50% 35%;
   background-size: cover;
 }
 .hero .title {
   max-width: 700px;
-  margin: 256px auto 128px auto;
+  margin: 0 auto;
 }
 .hero .title h3 {
-  color: var(--clr-grey);
+  /* color: var(--clr-grey); */
   font-weight: 500;
+}
+.hero .subtitle {
+  color:var(--clr-grey);
+  max-width: 500px;
+  margin: 0 auto;
+}
+@media screen and (max-width: 450px) {
+  .hero .subtitle {
+    font-size:18px;
+  }
+}
+.hero .empty {
+  height:80px;
 }
 .hero .button {
   width:30vw;
   min-width:300px;
   padding:16px 24px;
   cursor:pointer;
-  margin-bottom:64px;
+  margin-bottom: 5vh;
 }
 
 /* About */
@@ -293,12 +311,12 @@ body:has(.mobile-nav:has(.open)) {
     grid-template-columns: 1fr;
   }
 }
+
 /* Pillars */
 
 .pillars {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
   gap:128px;
 }
 .pillars img {
@@ -317,6 +335,7 @@ body:has(.mobile-nav:has(.open)) {
 @media screen and (max-width: 900px) {
   .pillars {
     grid-template-columns: 1fr;
+    gap:64px;
   }
 }
 
@@ -333,16 +352,27 @@ body:has(.mobile-nav:has(.open)) {
   width:100%;
   padding:128px var(--padding-side-default);
 }
+.current-camp h2 {
+  margin-bottom:16px;
+}
 .current-camp li {
   color: var(--clr-grey);
   line-height: calc(var(--line-height) + 10);
 }
 .current-camp p:not(.clr-yellow) {
   color: var(--clr-grey);
+  line-height: 30px;
+  margin:8px 0;
 }
 .current-camp .button {
   margin-top:32px;
   padding:12px 128px;
+}
+@media screen and (max-width:550px) {
+  .current-camp p:not(.clr-yellow)  {
+    line-height: 22px;
+
+  }
 }
 
 /* Testimonials */
@@ -368,7 +398,7 @@ body:has(.mobile-nav:has(.open)) {
 }
 .testimonial .quotes {
   width: 40px;
-  height:35px;
+  /* height:35px; */
 }
 .testimonial .review {
   display: flex;
@@ -380,6 +410,12 @@ body:has(.mobile-nav:has(.open)) {
 @media screen and (max-width: 900px) {
   .testimonials {
     grid-template-columns: 1fr;
+  }
+  .testimonial .quotes {
+    width:33px;
+  }
+  .testimonial .review {
+    gap:16px
   }
 }
 
@@ -417,6 +453,14 @@ input::placeholder {
   margin:0 auto;
   line-height: 22px;
   margin-top:16px;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type=number] {
+  -moz-appearance: textfield;
 }
 
 /* Footer */
